@@ -14,7 +14,7 @@ namespace CustomPostmanUI
 
         private async void callAPI_Click(object sender, EventArgs e)
         {
-            //validate api url
+            //validate api url coming soon
 
 
             try
