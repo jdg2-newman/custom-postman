@@ -4,7 +4,7 @@ namespace CustomPostmanUI
 {
     public partial class Dashboard : Form
     {
-        private readonly ApiAccess api = new ();
+        private readonly IApiAccess api = new ApiAccess();
 
         public Dashboard()
         {
@@ -18,13 +18,19 @@ namespace CustomPostmanUI
 
         private async void callAPI_Click(object sender, EventArgs e)
         {
+            systemStatus.Text = "Calling API...";
+            resultsText.Text = "";
+
             //validate api url coming very very soon!
+            if (api.ValidateUrl(apiText.Text) == false)
+            {
+                systemStatus.Text = "Invalid URL";
+                return;
+            }
 
 
             try
             {
-                systemStatus.Text = "Calling API...";
-
 
                 resultsText.Text = await api.CallApiAsync(apiText.Text);
 
