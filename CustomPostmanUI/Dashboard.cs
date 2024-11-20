@@ -1,7 +1,11 @@
+using CustomPostman;
+
 namespace CustomPostmanUI
 {
     public partial class Dashboard : Form
     {
+        private readonly ApiAccess api = new ();
+
         public Dashboard()
         {
             InitializeComponent();
@@ -22,8 +26,7 @@ namespace CustomPostmanUI
                 systemStatus.Text = "Calling API...";
 
 
-                // placeholder delay - to be replaced
-                await Task.Delay(2000);
+                resultsText.Text = await api.CallApiAsync(apiText.Text);
 
                 systemStatus.Text = "Ready";
             }
