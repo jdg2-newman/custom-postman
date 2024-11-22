@@ -9,6 +9,7 @@ namespace CustomPostmanUI
         public Dashboard()
         {
             InitializeComponent();
+            httpVerbSelection.SelectedItem = "GET";
         }
 
         private void toolStripStatusLabel1_Click(object sender, EventArgs e)
@@ -33,6 +34,7 @@ namespace CustomPostmanUI
             {
 
                 resultsText.Text = await api.CallApiAsync(apiText.Text);
+                callData.SelectedTab = resultsTab;
 
                 systemStatus.Text = "Ready";
             }
@@ -45,6 +47,11 @@ namespace CustomPostmanUI
         }
 
         private void resultsLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
