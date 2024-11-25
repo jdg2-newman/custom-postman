@@ -1,16 +1,13 @@
 ﻿
+
 namespace CustomPostman
 {
     public interface IApiAccess
     {
-        /// <summary>
-        /// Calls api
-        /// </summary>
-        /// <param name="url"></param>
-        /// <param name="formatOutput"></param>
-        /// <param name="action"></param>
-        /// <returns></returns>
-        Task<string> CallApiAsync(string url, bool formatOutput = true, HttpAction action = HttpAction.GET);
+       
+        Task<string> CallApiAsync(string url, string content, HttpAction action = HttpAction.GET, bool formatOutput = true);
+        Task<string> CallApiAsync(string url, HttpContent? content = null, HttpAction action = HttpAction.GET, bool formatOutput = true);
+
         /// <summary>
         /// Validates the url
         /// </summary>
