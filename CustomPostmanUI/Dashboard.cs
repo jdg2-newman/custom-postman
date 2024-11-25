@@ -22,7 +22,6 @@ namespace CustomPostmanUI
             systemStatus.Text = "Calling API...";
             resultsText.Text = "";
 
-            //validate api url coming very very soon!
             if (api.ValidateUrl(apiText.Text) == false)
             {
                 systemStatus.Text = "Invalid URL";
