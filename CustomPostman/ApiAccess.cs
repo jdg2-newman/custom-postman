@@ -67,6 +67,11 @@ namespace CustomPostman
 
         }
 
+        public async Task PostApi()
+        {
+            throw new NotImplementedException();
+        }
+
         public bool ValidateUrl(string url)
         {
             if (string.IsNullOrWhiteSpace(url))
