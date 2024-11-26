@@ -67,9 +67,13 @@ namespace CustomPostman
 
         }
 
-        public async Task PostApi()
+        public async Task PostApi(string hello)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(hello))
+            {
+                throw new NotImplementedException();
+            }
+        
         }
 
         public bool ValidateUrl(string url)
