@@ -73,6 +73,10 @@ namespace CustomPostman
             {
                 throw new NotImplementedException();
             }
+            else
+            {
+                throw new ArgumentNullException(nameof(hello));
+            }
         
         }
 
