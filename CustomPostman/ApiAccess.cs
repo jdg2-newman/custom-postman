@@ -67,6 +67,13 @@ namespace CustomPostman
 
         }
 
+        /// <summary>
+        /// Added xml banner
+        /// </summary>
+        /// <param name="hello"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        /// <exception cref="ArgumentNullException"></exception>
         public async Task PostApi(string hello)
         {
             if (string.IsNullOrEmpty(hello))
