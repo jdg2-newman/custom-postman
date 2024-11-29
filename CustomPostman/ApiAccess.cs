@@ -68,7 +68,7 @@ namespace CustomPostman
         }
 
         /// <summary>
-        /// Added xml banner
+        /// Added xml banner changed some text
         /// </summary>
         /// <param name="hello"></param>
         /// <returns></returns>
