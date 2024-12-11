@@ -80,14 +80,7 @@ namespace CustomPostman
             {
                 throw new NotImplementedException();
             }
-            else if(string.IsNullOrEmpty(hello))
-            {
-                throw new ArgumentNullException(nameof(hello));
-            }
-            else
-            {
-                throw new Exception();
-            }
+            
         
         }
 
