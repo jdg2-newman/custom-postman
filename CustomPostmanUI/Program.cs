@@ -1,16 +1,34 @@
-namespace CustomPostmanUI;
+using System;
+using System.Windows.Forms;
+using CustomPostman;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
-internal static class Program
+namespace CustomPostmanUI
 {
-    /// <summary>
-    ///  The main entry point for the application.
-    /// </summary>
-    [STAThread]
-    static void Main()
+    internal static class Program
     {
-        // To customize application configuration such as set high DPI settings or default font,
-        // see https://aka.ms/applicationconfiguration.
-        ApplicationConfiguration.Initialize();
-        Application.Run(new Dashboard());
+        [STAThread]
+        static void Main()
+        {
+            // Set up a Host for Dependency Injection
+            var host = CreateHostBuilder().Build();
+
+            // Start the application with DI services
+            ApplicationConfiguration.Initialize();
+
+            // Resolve the main form (Dashboard) from DI
+            var dashboard = host.Services.GetRequiredService<Dashboard>();
+            Application.Run(dashboard);
+        }
+
+        private static IHostBuilder CreateHostBuilder() =>
+            Host.CreateDefaultBuilder()
+                .ConfigureServices((context, services) =>
+                {
+                    // Register your services here
+                    services.AddSingleton<Dashboard>(); // Register the main form
+                    services.AddScoped<IApiAccess, ApiAccess>(); // Example service
+                });
     }
 }
