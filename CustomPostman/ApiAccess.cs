@@ -1,11 +1,20 @@
-﻿using System.Text;
+﻿using Microsoft.Extensions.Logging;
+using System.Text;
 using System.Text.Json;
 
 namespace CustomPostman
 {
     public class ApiAccess : IApiAccess
     {
-        private readonly HttpClient client = new();
+        private HttpClient HttpClient { get; }
+        private ILogger<ApiAccess> Logger { get; }
+
+        public ApiAccess(
+            ILogger<ApiAccess> logger)
+        {
+            this.Logger = logger;
+        }
+
         public async Task<string> CallApiAsync(
             string url,
             string content,
@@ -24,24 +33,26 @@ namespace CustomPostman
             bool formatOutput = true          
             )
         {
+
+            this.Logger.LogInformation("Calling API");
             HttpResponseMessage? response;
 
             switch (action)
             {
                 case HttpAction.GET:
-                    response = await client.GetAsync(url);
+                    response = await HttpClient.GetAsync(url);
                     break;
                 case HttpAction.POST:
-                    response = await client.PostAsync(url, content);
+                    response = await HttpClient.PostAsync(url, content);
                     break;
                 case HttpAction.PUT:
-                    response = await client.PutAsync(url, content);
+                    response = await HttpClient.PutAsync(url, content);
                     break;
                 case HttpAction.PATCH:
-                    response = await client.PatchAsync(url, content);
+                    response = await HttpClient.PatchAsync(url, content);
                     break;
                 case HttpAction.DELETE:
-                    response = await client.DeleteAsync(url);
+                    response = await HttpClient.DeleteAsync(url);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(action), action, null);
@@ -62,6 +73,7 @@ namespace CustomPostman
             }
             else
             {
+                this.Logger.LogError("Could not call API");
                 return $"Error: {response.StatusCode}";
             }
 

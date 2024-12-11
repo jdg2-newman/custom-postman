@@ -4,11 +4,12 @@ namespace CustomPostmanUI
 {
     public partial class Dashboard : Form
     {
-        private readonly IApiAccess api = new ApiAccess();
+        private readonly IApiAccess api;
 
         public Dashboard()
         {
             InitializeComponent();
+            api = api ?? throw new ArgumentNullException(nameof(api));
             httpVerbSelection.SelectedItem = "GET";
         }
 

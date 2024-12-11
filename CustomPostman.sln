@@ -5,7 +5,9 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomPostman", "CustomPostman\CustomPostman.csproj", "{6E232BC9-83CB-476A-A395-48F948D5E23A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomPostmanUI", "CustomPostmanUI\CustomPostmanUI.csproj", "{AB6863BF-DAD4-4C16-A127-B42E0E4DC1CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomPostmanUI", "CustomPostmanUI\CustomPostmanUI.csproj", "{AB6863BF-DAD4-4C16-A127-B42E0E4DC1CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomPostmanTests", "CustomPostmanTests\CustomPostmanTests.csproj", "{963F2879-543A-4EAE-A4BF-F52C84379525}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{AB6863BF-DAD4-4C16-A127-B42E0E4DC1CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB6863BF-DAD4-4C16-A127-B42E0E4DC1CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB6863BF-DAD4-4C16-A127-B42E0E4DC1CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{963F2879-543A-4EAE-A4BF-F52C84379525}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{963F2879-543A-4EAE-A4BF-F52C84379525}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{963F2879-543A-4EAE-A4BF-F52C84379525}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{963F2879-543A-4EAE-A4BF-F52C84379525}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
